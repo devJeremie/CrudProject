@@ -28,9 +28,19 @@ class MainController extends AbstractController
         $crud = new Crud();
         $form = $this->createForm(CrudType::class, $crud);
         $form->handleRequest($request);
+        if ( $form->isSubmitted() && $form->isValid()) {
+            $sendDatabase = $this->getDoctrine()
+                                 ->getManager();
+            $sendDatabase->persist($crud);
+            $sendDatabase->flush();
+
+            $this->addFlash('notice', 'Soumission réussi !!');
+        }
+
 
         return $this->render('main/createForm.html.twig', [
             'controller_name' => 'MainController',
+            'form' => $form->createView()
         ]);
     }
 }
