@@ -1,17 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+<body>
+    <div class="container mt-5">
         <div class="row">
-            <h3 class="mt-5 mb-5">Formulaire de création</h3>
+            <h3 class="mt-5 mb-5 text-white">Formulaire de création</h3>
             {# Affichage d'un formulaire Symfony #}
             <div class="col-md-6 offset-md-3">
                 {{ form_start(form) }}
-                    <div class="form-group">
+                    <div class="form-group text-white">
                         {{ form_label(form.title) }}
                         {{ form_widget(form.title, { 'attr': {'class':'form-control'} }) }}
                     </div>
-                    <div class="form-group">
+                    <div class="form-group text-white">
                         {{ form_label(form.content) }}
                         {{ form_widget(form.content, { 'attr': {'class':'form-control'} }) }}
                     </div>
@@ -22,7 +23,7 @@
             </div>
         </div>
     </div>
-
+</body
 
 
 {% endblock %}

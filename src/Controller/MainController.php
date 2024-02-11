@@ -23,7 +23,7 @@ class MainController extends AbstractController
         ]);
     }
     /**
-     * @Route("/create", name="create")
+     * @Route("/create", name="create", methods: ['GET','POST'])
      */
     public function create(Request $request): Response
     {
@@ -49,7 +49,7 @@ class MainController extends AbstractController
     }
 
      /**
-     * @Route("/update/{id}", name="update")
+     * @Route("/update/{id}", name="update", methods: ['GET','POST'])
      */
     public function update(Request $request, $id): Response
     {
