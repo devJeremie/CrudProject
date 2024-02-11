@@ -3,7 +3,13 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <h3 class="mt-5 mb-5">Formulaire de création</h3>
+            <h3 class="mt-5 mb-5">Modification du formulaire </h3>
+            {# Affichage d'un message flash #}
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-success">
+                    {{message}}
+                </div>
+            {% endfor %}
             {# Affichage d'un formulaire Symfony #}
             <div class="col-md-6 offset-md-3">
                 {{ form_start(form) }}
@@ -16,13 +22,10 @@
                         {{ form_widget(form.content, { 'attr': {'class':'form-control'} }) }}
                     </div>
                      <div class="form-group">
-                        <button class="btn btn-info mt-2 text-white">Soumettre</button>
+                        <button class="btn btn-info mt-2 text-white">Modifier</button>
                     </div>
                 {{ form_end(form) }}
             </div>
         </div>
     </div>
-
-
-
 {% endblock %}
