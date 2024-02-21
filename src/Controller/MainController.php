@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Crud;
 use App\Form\CrudType;
+use App\Repository\CrudRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,12 +15,13 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="main")
      */
-    public function index(): Response
+    public function index(CrudRepository $repo): Response
     {
-        $data = $this->getDoctrine()->getRepository(Crud::class)->findAll();
-        return $this->render('main/index.html.twig', [
+        #$data = $this->getDoctrine()->getRepository(Crud::class)->findAll();
+        $datas = $repo->findAll();
+        return $this->render('main/AfficheArticle.html.twig', [
             'controller_name' => 'MainController',
-            'datas'=>$data,
+            'datas'=>$datas,
         ]);
     }
     /**
@@ -27,8 +29,8 @@ class MainController extends AbstractController
      */
     public function create(Request $request): Response
     {
-        $crud = new Crud();
-        $form = $this->createForm(CrudType::class, $crud);
+        $crud = new Crud();#entity
+        $form = $this->createForm(CrudType::class, $crud);#form
         $form->handleRequest($request);
         if ( $form->isSubmitted() && $form->isValid()) {
             $sendDatabase = $this->getDoctrine()
