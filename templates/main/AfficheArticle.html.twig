@@ -23,13 +23,13 @@
     <tbody>
     {% for data in datas %}
         <tr>
-        <th scope="row">{{data.id}}</th>
-        <td>{{data.title}}</td>
-        <td>{{data.content}}</td>
-        <td>
-            <a href="{{ path('update',{'id': data.id}) }}" class="btn btn-warning">Modifier</a>
-            <a href="{{ path('delete',{'id': data.id}) }}" class="btn btn-danger">Supprimer</a>
-        </td>
+            <th scope="row">{{data.id}}</th>
+            <td>{{data.title}}</td>
+            <td>{{data.content}}</td>
+            <td>
+                <a href="{{ path('update',{'id': data.id}) }}" class="btn btn-warning">Modifier</a>
+                <a href="{{ path('delete',{'id': data.id}) }}" class="btn btn-danger">Supprimer</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
