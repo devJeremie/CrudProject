@@ -53,7 +53,7 @@ class MainController extends AbstractController
      /**
      * @Route("/update/{id}", name="update", methods: ['GET','POST'])
      */
-    public function update(Request $request, $id): Response
+    public function update($id,Request $request ): Response
     {
 
         $crud = $this->getDoctrine()->getRepository(Crud::class)->find($id);

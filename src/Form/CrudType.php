@@ -12,7 +12,9 @@ class CrudType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
+            ->add('title', null, [
+                'required' => false, #a checker dans la doc pour voir la contrainte (erreur constraint)
+            ])
             ->add('content')
         ;
     }
